@@ -15,6 +15,7 @@ RUN npm install
 COPY . .
 
 # Build the React app
+# TODO (cmz): this isn't being used ATM, package the build later with Express, et. al.
 RUN npm run build
 
 # Set environment variables if needed (e.g., for production)
