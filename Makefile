@@ -8,17 +8,8 @@ CLUSTER_NAME = bootstrap-otel-auth-app
 CLUSTER_CONTEXT = kind-bootstrap-otel-auth-app
 APP_IMAGE_NAME = bootstrap-otel-auth-app/app
 
+# TODO: See if I can get this to work
 #KUBECTL = $(shell kubectl --kubeconfig $(PWD)/kubeconfig)
-
-# Directories
-#SRCDIR = src
-#BINDIR = bin
-
-# Source files
-#SOURCES = $(wildcard $(SRCDIR)/*.py)
-
-# Binary name
-#TARGET = $(BINDIR)/program
 
 # Default target
 all: check_prereqs
@@ -29,11 +20,6 @@ all: check_prereqs
 	cd ./app && docker build -t $(APP_IMAGE_NAME) .
 	kind load docker-image $(APP_IMAGE_NAME) --name $(CLUSTER_NAME)
 	docker run --name app -p 3000:3000 $(APP_IMAGE_NAME) &
-
-# 	Ensure KiND is installed
-
-#	docker build -t pythonapp .
-#	docker run -ti --rm pythonapp
 
 check_prereqs:
 	@if [ -z "$(CHECK_DOCKER)" ]; then \
