@@ -16,10 +16,9 @@ all: check_prereqs
 	kind create cluster --name $(CLUSTER_NAME) --kubeconfig $(PWD)/kubeconfig
 	kubectl --kubeconfig $(PWD)/kubeconfig config set-context $(CLUSTER_CONTEXT)
 	kubectl --kubeconfig $(PWD)/kubeconfig cluster-info --context $(CLUSTER_CONTEXT)
-
 	cd ./app && docker build -t $(APP_IMAGE_NAME) .
 	kind load docker-image $(APP_IMAGE_NAME) --name $(CLUSTER_NAME)
-	docker run --name app -p 3000:3000 $(APP_IMAGE_NAME) &
+	kubectl --kubeconfig $(PWD)/kubeconfig --context $(CLUSTER_CONTEXT) apply -k deploy/
 
 check_prereqs:
 	@if [ -z "$(CHECK_DOCKER)" ]; then \
@@ -46,6 +45,5 @@ check_prereqs:
 clean:
 	kind delete cluster --name $(CLUSTER_NAME)
 	rm $(PWD)/kubeconfig
-	docker stop app && docker rm app
 
 .PHONY: all clean check_prereqs
