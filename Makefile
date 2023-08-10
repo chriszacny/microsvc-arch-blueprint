@@ -4,8 +4,8 @@ CHECK_DOCKER := $(shell which docker || true)
 CHECK_KIND := $(shell which kind || true)
 CHECK_KUBECTL := $(shell which kubectl || true)
 
-CLUSTER_NAME = kind-bootstrap-otel-auth-app
-CLUSTER_CONTEXT = kind-kind-bootstrap-otel-auth-app
+CLUSTER_NAME = bootstrap-otel-auth-app
+CLUSTER_CONTEXT = kind-bootstrap-otel-auth-app
 APP_IMAGE_NAME = bootstrap-otel-auth-app/app
 
 #KUBECTL = $(shell kubectl --kubeconfig $(PWD)/kubeconfig)
