@@ -13,12 +13,13 @@ APP_IMAGE_NAME = bootstrap-otel-auth-app/app
 
 # Default target
 all: check_prereqs
-	kind create cluster --name $(CLUSTER_NAME) --kubeconfig $(PWD)/kubeconfig
+	$(shell deploy/create-cluster.sh $(CLUSTER_NAME) $(PWD)/kubeconfig)
 	kubectl --kubeconfig $(PWD)/kubeconfig config set-context $(CLUSTER_CONTEXT)
 	kubectl --kubeconfig $(PWD)/kubeconfig cluster-info --context $(CLUSTER_CONTEXT)
 	cd ./app && docker build -t $(APP_IMAGE_NAME) .
 	kind load docker-image $(APP_IMAGE_NAME) --name $(CLUSTER_NAME)
 	kubectl --kubeconfig $(PWD)/kubeconfig --context $(CLUSTER_CONTEXT) apply -k deploy/
+	echo "Check status of nginx ingress controller pods via: kubectl get pods --namespace=nginx-ingress"
 
 check_prereqs:
 	@if [ -z "$(CHECK_DOCKER)" ]; then \
@@ -43,7 +44,7 @@ check_prereqs:
     fi
 
 clean:
-	kind delete cluster --name $(CLUSTER_NAME)
+	$(shell deploy/delete-cluster.sh $(CLUSTER_NAME))
 	rm $(PWD)/kubeconfig
 
 .PHONY: all clean check_prereqs

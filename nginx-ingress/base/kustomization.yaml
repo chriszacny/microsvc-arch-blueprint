@@ -1,2 +1,16 @@
----
-todo: todo
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ns-and-sa.yaml
+  - rbac.yaml
+  - default-server-secret.yaml
+  - nginx-config.yaml
+  - ingress-class.yaml
+  - k8s.nginx.org_virtualserverroutes.yaml
+  - k8s.nginx.org_virtualservers.yaml
+  - k8s.nginx.org_transportservers.yaml
+  - k8s.nginx.org_policies.yaml
+  - k8s.nginx.org_globalconfigurations.yaml
+  - nginx-ingress.yaml
+  - nodeport.yaml
