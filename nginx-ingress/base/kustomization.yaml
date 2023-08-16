@@ -13,4 +13,4 @@ resources:
   - k8s.nginx.org_policies.yaml
   - k8s.nginx.org_globalconfigurations.yaml
   - nginx-ingress.yaml
-  - nodeport.yaml
+  #- nodeport.yaml
