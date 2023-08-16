@@ -8,17 +8,18 @@ CLUSTER_NAME = bootstrap-otel-auth-app
 CLUSTER_CONTEXT = kind-bootstrap-otel-auth-app
 APP_IMAGE_NAME = bootstrap-otel-auth-app/app
 
-# TODO: See if I can get this to work
-#KUBECTL = $(shell kubectl --kubeconfig $(PWD)/kubeconfig)
+KUBECONFIG = $(PWD)/kubeconfig
+K9S = k9s --kubeconfig=$(KUBECONFIG)
+KUBECTL = kubectl --kubeconfig=$(KUBECONFIG)
 
 # Default target
 all: check_prereqs
-	$(shell deploy/create-cluster.sh $(CLUSTER_NAME) $(PWD)/kubeconfig)
-	kubectl --kubeconfig $(PWD)/kubeconfig config set-context $(CLUSTER_CONTEXT)
-	kubectl --kubeconfig $(PWD)/kubeconfig cluster-info --context $(CLUSTER_CONTEXT)
+	$(shell deploy/create-cluster.sh $(CLUSTER_NAME) $(KUBECONFIG))
+	$(KUBECTL) config set-context $(CLUSTER_CONTEXT)
+	$(KUBECTL) cluster-info --context $(CLUSTER_CONTEXT)
 	cd ./app && docker build -t $(APP_IMAGE_NAME) .
 	kind load docker-image $(APP_IMAGE_NAME) --name $(CLUSTER_NAME)
-	kubectl --kubeconfig $(PWD)/kubeconfig --context $(CLUSTER_CONTEXT) apply -k deploy/
+	$(KUBECTL) --context $(CLUSTER_CONTEXT) apply -k deploy/
 	echo "Check status of nginx ingress controller pods via: kubectl get pods --namespace=nginx-ingress"
 
 check_prereqs:
@@ -42,6 +43,9 @@ check_prereqs:
     else \
         echo "Binary 'kubectl' is installed."; \
     fi
+
+k9s:
+	$(K9S)
 
 clean:
 	$(shell deploy/delete-cluster.sh $(CLUSTER_NAME))
