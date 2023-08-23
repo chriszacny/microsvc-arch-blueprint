@@ -65,3 +65,9 @@ To get it to work, there were a few things I had to do:
         .
 
 - It isn't clear to me whether the NodePort is even needed in this case; it is commented out in the kustomization file for now. When deploying to a Cloud Provider with a Load Balancer, this would likely look a bit different given the Ingress will likely be a DaemonSet.
+
+# Great References, Links and Repos
+
+- https://www.nginx.com/blog/new-open-source-modern-apps-reference-architecture/
+- https://github.com/nginxinc/kic-reference-architectures
+- https://github.com/bdegeeter/porter-argo-demo
