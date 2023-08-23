@@ -1,8 +1,27 @@
-# bootstrap-otel-auth-app
+# Microservices Reference Architecture
 
-**NOTE (08.10.23)**: This is an active WIP and doesn't work yet; I will remove this when basic functionality has been completed.
+A modern platform built on microservices, designed for Software Engineers, Platform Engineers, Infrastructure Experts, and Site Reliability Pros. It offers a foundation to create software that tackles everyday challenges.
 
-A repo that demonstrates setting up an app with Authentication / Authorization (AuthN/Z) and an OTEL exporter for important observability data to be consumed by Prometheus, Loki, Jaeger, et. al., visualized on a set of Grafana dashboards.
+Specifically, it solves the following common needs:
+
+- [Simplicity](https://en.wikipedia.org/wiki/No_Silver_Bullet) in [Getting Started](#getting-started) - for the folks who just want to build an app and deploy it to an arbitrary cloud
+- ["Shift Left" / Security](https://www.crowdstrike.com/cybersecurity-101/shift-left-security/) - Modern CI/CD to perform SAST / DAST on the code in addition to various tooling to protect the service when it is deployed.
+- Paying the [Microservice Tax](https://martinfowler.com/bliki/MicroservicePremium.html) - In short, the need to wire together various software tooling to achieve the ability to properly build, run and observe a microservice.
+- [The "ilities" and Non-Functional-Requirements (NFRs)](https://en.wikipedia.org/wiki/List_of_system_quality_attributes) aka - Observability, Scalability, Reliabilty, Resiliency, Portability
+
+Given this is an ever-evolving and dynamic landscape, this will be worked on in continuous Phases.
+
+This reference architecture is opinionated in favor of being [Kubernetes-Native](https://developers.redhat.com/blog/2020/04/08/why-kubernetes-native-instead-of-cloud-native).
+
+See [Getting Started](#getting-started) to try it out!
+
+# Phase 1
+
+The goal of this phase is to set up a Kubernetes (K8s) Native App with Authentication / Authorization (AuthN/Z) and an OTEL exporter for important observability data to be consumed by Prometheus, Loki, Jaeger, et. al., visualized on a set of Grafana dashboards.
+
+# Phase 2
+
+- Coming Soon!
 
 # Getting Started
 
