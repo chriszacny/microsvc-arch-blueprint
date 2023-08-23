@@ -1,19 +1,17 @@
 # Microservices Reference Architecture
 
-A modern platform built on microservices, designed for Software Engineers, Platform Engineers, Infrastructure Experts, and Site Reliability Pros. It offers a foundation to create software that tackles everyday challenges.
+A cutting-edge microservices platform crafted for all engineers: Software, Platform, Infrastructure, and Site Reliability. It streamlines:
 
-Specifically, it solves the following common needs:
+- [Simplicity](<(https://en.wikipedia.org/wiki/No_Silver_Bullet)>): Swiftly build and deploy the provided sample services to any cloud.
+- [Security](<(https://www.crowdstrike.com/cybersecurity-101/shift-left-security/)>): Incorporates "Shift Left" security with modern CI/CD, SAST/DAST, and protective tooling for deployed services.
+  Integration: Seamlessly connects tools for microservice management.
+- [Quality](https://en.wikipedia.org/wiki/List_of_system_quality_attributes): Focus on the key "ilities" - Observability, Scalability, Reliability, and more.
 
-- [Simplicity](https://en.wikipedia.org/wiki/No_Silver_Bullet) in [Getting Started](#getting-started) - for the folks who just want to build an app and deploy it to an arbitrary cloud
-- ["Shift Left" / Security](https://www.crowdstrike.com/cybersecurity-101/shift-left-security/) - Modern CI/CD to perform SAST / DAST on the code in addition to various tooling to protect the service when it is deployed.
-- Paying the [Microservice Tax](https://martinfowler.com/bliki/MicroservicePremium.html) - In short, the need to wire together various software tooling to achieve the ability to properly build, run and observe a microservice.
-- [The "ilities" and Non-Functional-Requirements (NFRs)](https://en.wikipedia.org/wiki/List_of_system_quality_attributes) aka - Observability, Scalability, Reliabilty, Resiliency, Portability
+[Phase 1](#phase-1) of this project prioritizes the platform's features and benefits and makes it easier for engineers to quickly grasp the key points.
 
-Given this is an ever-evolving and dynamic landscape, this will be worked on in continuous Phases.
+Proudly [Kubernetes-Native](https://developers.redhat.com/blog/2020/04/08/why-kubernetes-native-instead-of-cloud-native).
 
-This reference architecture is opinionated in favor of being [Kubernetes-Native](https://developers.redhat.com/blog/2020/04/08/why-kubernetes-native-instead-of-cloud-native).
-
-See [Getting Started](#getting-started) to try it out!
+Dive in with our [Getting Started Guide](#getting-started)!
 
 # Phase 1
 
