@@ -1,6 +1,6 @@
-# Microservices Blueprint Architecture
+# Microservices Architecture Blueprint
 
-An actionable, cutting-edge microservices platform crafted for all engineers: Software, Platform, Infrastructure, and Site Reliability. It streamlines:
+An actionable, cutting-edge Microservices Architecture Blueprint crafted for all types of Software Engineers. It streamlines:
 
 - [Simplicity](https://en.wikipedia.org/wiki/No_Silver_Bullet): Swiftly build and deploy the provided sample services to any cloud.
 - [Security](https://www.crowdstrike.com/cybersecurity-101/shift-left-security/): Incorporates "Shift Left" security with modern CI/CD, SAST/DAST, and protective tooling for deployed services.
