@@ -1,6 +1,6 @@
 # Microservices Architecture Blueprint
 
-An actionable, cutting-edge Microservices Architecture Blueprint crafted for all types of Software Engineers. It streamlines:
+An actionable, cutting-edge Microservices Architecture Blueprint crafted for all types of Software Engineers. This project tackles the essential infrastructure so you can concentrate on your Apps and Services. It streamlines:
 
 - [Simplicity](https://en.wikipedia.org/wiki/No_Silver_Bullet): Swiftly build and deploy the provided sample services to any cloud.
 - [Security](https://www.crowdstrike.com/cybersecurity-101/shift-left-security/): Incorporates "Shift Left" security with modern CI/CD, SAST/DAST, and protective tooling for deployed services.
@@ -15,7 +15,7 @@ Dive in with our [Getting Started Guide](#getting-started)!
 
 # Phase 1
 
-The goal of this phase is to set up a Kubernetes (K8s) Native App with Authentication / Authorization (AuthN/Z) and an OTEL exporter for important observability data to be consumed by Prometheus, Loki, Jaeger, et. al., visualized on a set of Grafana dashboards.
+The goal of this phase is to set up a Kubernetes (K8s) Native App comprised of 2-3 services with Authentication / Authorization (AuthN/Z) and an OTEL exporter for important observability data to be consumed by Prometheus, Loki, Jaeger, et. al., visualized on a set of Grafana dashboards.
 
 # Phase 2
 
