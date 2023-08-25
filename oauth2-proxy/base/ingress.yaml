@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    app: oauth2-proxy
+  name: oauth2-proxy
+  namespace: microsvc-arch-blueprint
+  annotations:
+    nginx.org/server-snippets: |
+      large_client_header_buffers 4 32k;
+spec:
+  rules:
+    - host: oauth2-proxy.localtest.me
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: oauth2-proxy
+                port:
+                  number: 80

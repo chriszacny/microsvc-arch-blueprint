@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: oauth2-proxy
+  name: oauth2-proxy
+  namespace: microsvc-arch-blueprint
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oauth2-proxy
+  template:
+    metadata:
+      annotations:
+        checksum/config: 5d8892a7b1d9eb03f9d59b787ce339b374fa2be51991e4e7533cb0a541984fac
+        checksum/config-emails: 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
+        checksum/secret: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+        checksum/google-secret: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      labels:
+        app: oauth2-proxy
+    spec:
+      containers:
+        - name: oauth2-proxy
+          image: "quay.io/pusher/oauth2_proxy:v5.1.0"
+          imagePullPolicy: IfNotPresent
+          args:
+            - --http-address=0.0.0.0:4180
+            - --config=/etc/oauth2_proxy/oauth2_proxy.cfg
+          ports:
+            - containerPort: 4180
+              name: http
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /ping
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 0
+            timeoutSeconds: 1
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 0
+            timeoutSeconds: 5
+            successThreshold: 1
+            periodSeconds: 10
+          resources: {}
+          volumeMounts:
+            - mountPath: /etc/oauth2_proxy
+              name: configmain
+      volumes:
+        - configMap:
+            defaultMode: 420
+            name: oauth2-proxy
+          name: configmain
+      tolerations: []

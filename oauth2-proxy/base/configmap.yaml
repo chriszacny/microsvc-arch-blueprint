@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: oauth2-proxy
+  name: oauth2-proxy
+  namespace: microsvc-arch-blueprint
+data:
+  oauth2_proxy.cfg: "cookie_secret=\"OQINaROshtE9TcZkNAm-5Zs2Pv3xaWytBmc5W7sPX7w=\"\ncookie_domain=\".localtest.me\"\nwhitelist_domains=[\".localtest.me\"]\n# only users with this domain will be let in\nemail_domains=[\"example.com\"]\n\nclient_id=\"oauth2-proxy\"\nclient_secret=\"b2F1dGgyLXByb3h5LWNsaWVudC1zZWNyZXQK\"\ncookie_secure=\"false\"\n\nredirect_url=\"http://oauth2-proxy.localtest.me/oauth2/callback\"\n\n# we don't want to proxy anything so pick a non-existent directory\nupstreams = [ \"file:///dev/null\" ]\n\n# return authenticated user to nginx\nset_xauthrequest = true\n# using http://dex.localtest.me/.well-known/openid-configuration oauth2-proxy will populate\n# login_url, redeem_url, and oidc_jwks_url\nprovider=\"oidc\"\noidc_issuer_url=\"http://dex.localtest.me\""
