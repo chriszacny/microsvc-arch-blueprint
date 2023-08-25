@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: app
-  namespace: bootstrap-otel-auth-app
+  namespace: microsvc-arch-blueprint
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:

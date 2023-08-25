@@ -4,9 +4,9 @@ CHECK_DOCKER := $(shell which docker || true)
 CHECK_KIND := $(shell which kind || true)
 CHECK_KUBECTL := $(shell which kubectl || true)
 
-CLUSTER_NAME = bootstrap-otel-auth-app
-CLUSTER_CONTEXT = kind-bootstrap-otel-auth-app
-APP_IMAGE_NAME = bootstrap-otel-auth-app/app
+CLUSTER_NAME = microsvc-arch-blueprint
+CLUSTER_CONTEXT = kind-microsvc-arch-blueprint
+APP_IMAGE_NAME = microsvc-arch-blueprint/app
 
 KUBECONFIG = $(PWD)/kubeconfig
 K9S = k9s --kubeconfig=$(KUBECONFIG)
